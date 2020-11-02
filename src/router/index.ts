@@ -3,6 +3,10 @@ import home from './home'
 
 const routes: Array<RouteRecordRaw> = [
   home,
+  {
+    path: '/',
+    redirect: '/home'
+  },
 ]
 
 const router = createRouter({
