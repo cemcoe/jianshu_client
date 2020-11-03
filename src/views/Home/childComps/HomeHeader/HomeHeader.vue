@@ -12,8 +12,12 @@
       </template>
 
       <template #right>
-        
-        <div>
+        <div v-if="user.name">
+          <router-link :to="user_detail_link" class="user-info">
+            <img :src="user.avatar" alt="avator" />
+          </router-link>
+        </div>
+        <div v-else>
           <router-link :to="'/login'" replace class="login"
             >登录|注册</router-link
           >
@@ -29,6 +33,17 @@ export default {
   name: "HomeHeader",
   components: {
     NavBar,
+  },
+  created() {
+    console.log(this.$store.state.user);
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+    user_detail_link() {
+      return "/u/" + this.$store.state.user._id;
+    },
   },
 };
 </script>
