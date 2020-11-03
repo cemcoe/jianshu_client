@@ -1,10 +1,16 @@
 <template>
-  <div>header</div>
+  <home-header></home-header>
   <router-view></router-view>
 </template>
 
 <script>
-export default {};
+import HomeHeader from "./childComps/HomeHeader/HomeHeader";
+
+export default {
+  components: {
+    HomeHeader,
+  },
+};
 </script>
 
 <style>
